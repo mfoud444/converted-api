@@ -6,10 +6,10 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 # Set the working directory in the container
-WORKDIR /app
+WORKDIR /
 
 # Copy the requirements file into the container
-COPY . /app/
+COPY . .
 
 # Install any needed packages specified in requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
@@ -27,7 +27,7 @@ COPY fonts/majalla.ttf /usr/share/fonts/truetype/majalla.ttf
 RUN fc-cache -fv
 
 # Copy the rest of the application code
-COPY . /app
+COPY . .
 
 # Expose the port the app runs on
 EXPOSE 5000
